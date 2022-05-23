@@ -41,10 +41,19 @@ function Featured() {
       <style jsx>{`
         .featured {
           width: 100%;
-          max-width: 1024px;
+          // max-width: 1024px;
           display: flex;
           justify-content: space-between;
           gap: 0px;
+          overflow-x: scroll;
+          //border: 2px solid red;
+          padding: 0px 12px;
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        .featured::-webkit-scrollbar {
+          display: none; /* Safari and Chrome */
         }
 
         .featuredItem {
@@ -54,6 +63,7 @@ function Featured() {
           overflow: hidden;
           height: 250px;
           width: 30%;
+          min-width: 250px;
         }
 
         .featured .featuredItem:nth-child(2) {
@@ -76,6 +86,18 @@ function Featured() {
         .featureTitles h1,
         .featureTitles h2 {
           text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.82);
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          width: 100%; // some width
+        }
+
+        @media only screen and (min-width: 1024px) {
+          .featured {
+            width: 100%;
+            max-width: 1024px;
+            padding: 0;
+          }
         }
       `}</style>
     </>

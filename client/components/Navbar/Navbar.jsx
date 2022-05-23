@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
   return (
@@ -10,6 +12,9 @@ function Navbar() {
             <button className="navButton">Register</button>
             <button className="navButton">Login</button>
           </div>
+          <div className="hamburgerMenu">
+            <FontAwesomeIcon icon={faBars} />
+          </div>
         </div>
       </div>
       <style jsx>
@@ -19,6 +24,8 @@ function Navbar() {
             background-color: #003580;
             display: flex;
             justify-content: center;
+
+            width: 100%;
           }
 
           .navContainer {
@@ -28,6 +35,7 @@ function Navbar() {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0px 12px;
           }
 
           .logo {
@@ -35,6 +43,10 @@ function Navbar() {
             cursor: pointer;
 
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+          }
+
+          .navItems {
+            display: none;
           }
 
           .navButton {
@@ -47,6 +59,21 @@ function Navbar() {
             font-weight: 700;
             border-radius: 2px;
             min-width: 80px;
+          }
+
+          @media only screen and (min-width: 768px) {
+            .hamburgerMenu {
+              display: none;
+            }
+            .navItems {
+              display: block;
+            }
+          }
+
+          @media only screen and (min-width: 1024px) {
+            .navContainer {
+              padding: 0px;
+            }
           }
         `}
       </style>

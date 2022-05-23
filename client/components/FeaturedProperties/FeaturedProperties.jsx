@@ -72,10 +72,18 @@ function FeaturedProperties(props) {
       <style jsx>{`
         .fp {
           width: 100%;
-          max-width: 1024px;
+          max-width: 100%;
           display: flex;
           justify-content: space-between;
           gap: 20px;
+          padding: 0px 12px;
+          overflow-x: scroll;
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        .fp::-webkit-scrollbar {
+          display: none; /* Safari and Chrome */
         }
 
         .fpItem {
@@ -86,6 +94,7 @@ function FeaturedProperties(props) {
           border-radius: 10px;
           overflow: hidden;
           border: 1px solid rgba(0, 0, 0, 0.08);
+          min-width: 180px;
         }
 
         .fpContentContainer {
@@ -103,17 +112,26 @@ function FeaturedProperties(props) {
 
         .fpName {
           font-weight: bold;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          width: 100%; // some width
         }
 
         .fpCity {
           font-weight: 300;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          width: 100%; // some width
         }
 
         .fpPrice {
           font-weight: 500;
-        }
-
-        .fpRating {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          width: 100%; // some width
         }
 
         .fpRating > button {
@@ -128,6 +146,13 @@ function FeaturedProperties(props) {
 
         .fpRating > span {
           font-size: 0.875rem;
+        }
+
+        @media only screen and (min-width: 1024px) {
+          .fp {
+            max-width: 1024px;
+            padding: 0;
+          }
         }
       `}</style>
     </>

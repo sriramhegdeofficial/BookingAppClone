@@ -112,23 +112,21 @@ function PropertyList(props) {
       <style jsx>{`
         .pList {
           width: 100%;
-          max-width: 1024px;
-          
-          
+          //max-width: 1024px;
+
+          padding: 0px 12px;
         }
 
-         
-           .pListItem {
+        .pListItem {
           border-radius: 10px;
           overflow: hidden;
           cursor: pointer;
           width: 18%;
+          min-width: 184px;
           margin: 0px 12px;
-          border: 1px solid rgba(0,0,0,0.08);
+          border: 1px solid rgba(0, 0, 0, 0.08);
           background: white;
         }
-
-      
 
         .pListItem:nth-child(1) {
           margin-left: 0px;
@@ -146,14 +144,34 @@ function PropertyList(props) {
 
         .pListTitles h1 {
           font-size: 1.125rem;
-          line-height: 0.2rem;
+          line-height: 1.3rem;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          width: 100%; // some width
         }
 
         .pListTitles h2 {
           font-size: 0.875rem;
           font-weight: 300;
-        } */
-        
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          width: 100%; // some width
+        }
+
+        @media only screen and (min-width: 1024px) {
+          .pList {
+            max-width: 1024px;
+
+            //border: 2px dashed red;
+            padding: 0px;
+          }
+
+          .pListItem {
+            min-width: 0;
+          }
+        }
       `}</style>
     </>
   );

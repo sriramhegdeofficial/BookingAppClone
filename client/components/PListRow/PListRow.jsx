@@ -9,10 +9,18 @@ function PListRow({ isFull, children }) {
       <style jsx>{`
         .container {
           width: 100%;
+          max-width: 100%;
           min-height: 245px;
           display: flex;
           justify-content: space-between;
           margin-bottom: 12px;
+          overflow-x: scroll;
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        .container::-webkit-scrollbar {
+          display: none; /* Safari and Chrome */
         }
 
         .container.nostyle {
